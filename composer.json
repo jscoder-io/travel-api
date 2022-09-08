@@ -20,5 +20,15 @@
         "psr-4": {
             "Firman\\TravelApi\\": "src/"
         }
+    },
+    "require-dev": {
+        "pestphp/pest": "^1.22",
+        "phpstan/phpstan": "^1.8",
+        "symfony/dotenv": "^6.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }
