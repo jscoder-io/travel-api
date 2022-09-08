@@ -2,6 +2,12 @@
 
 use Firman\TravelApi\Api\Amadeus\AccessToken;
 use Firman\TravelApi\Api\Amadeus\Environment;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+
+beforeEach(function () {
+    $cache  = new FilesystemAdapter();
+    $cache->delete('amadeus_token');
+});
 
 it('returns test base url', function () {
     Environment::setEnv('test');
