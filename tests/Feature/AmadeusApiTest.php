@@ -4,6 +4,10 @@ use Firman\TravelApi\Client;
 use Firman\TravelApi\Provider\Provider;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
+beforeAll(function () {
+    (new FilesystemAdapter())->delete('amadeus_token');
+});
+
 beforeEach(function () {
     $this->invalidConfig = [
         'client_id'     => '1nV4liD',
@@ -16,16 +20,6 @@ beforeEach(function () {
         'client_secret' => $_ENV['AMADEUS_CLIENT_SECRET'],
         'env'           => $_ENV['AMADEUS_ENV']
     ];
-
-    $cache  = new FilesystemAdapter();
-    $cache->delete('amadeus_token');
-});
-
-test('401 Unauthorized', function () {
-    $client = new Client(Provider::AMADEUS, $this->invalidConfig);
-
-    expect($client->getFlightCheckinLinks('BA'))
-        ->toHaveProperty('errors');
 });
 
 test('Flight checkin links', function () {
@@ -61,4 +55,12 @@ test('Find nearest airport', function () {
 
     expect($client->getNearestAirport(40.416775, -3.703790, 150))
         ->toHaveProperties(['meta', 'data']);
+});
+
+test('401 Unauthorized', function () {
+    (new FilesystemAdapter())->delete('amadeus_token');
+    $client = new Client(Provider::AMADEUS, $this->invalidConfig);
+
+    expect($client->getFlightCheckinLinks('BA'))
+        ->toHaveProperty('errors');
 });

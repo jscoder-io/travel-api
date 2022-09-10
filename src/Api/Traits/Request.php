@@ -26,6 +26,7 @@ trait Request
      */
     public function get(array $params = [])
     {
+        /* @phpstan-ignore-next-line */
         try {
             return $this->jsonResponse(
                 $this->client()->get(
@@ -53,6 +54,7 @@ trait Request
      */
     public function post(array $params = [])
     {
+        /* @phpstan-ignore-next-line */
         try {
             return $this->jsonResponse(
                 $this->client()->post(

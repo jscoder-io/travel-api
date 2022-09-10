@@ -6,5 +6,6 @@
 .php-cs-fixer.cache
 .phpunit.result.cache
 phpunit.xml
+phpstan.neon
 npm-debug.log
 yarn-error.log
