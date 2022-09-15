@@ -2,6 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/firman/travel-api.svg)](https://packagist.org/packages/firman/travel-api)
 [![Total Downloads](https://img.shields.io/packagist/dt/firman/travel-api.svg)](https://packagist.org/packages/firman/travel-api)
+[![License](https://img.shields.io/packagist/l/firman/travel-api.svg)](https://packagist.org/packages/firman/travel-api)
 
 Travel APIs fetch data from different providers, such as airlines, hotels, destinations, etc. Currently, it only supports **Amadeus API**.
 
